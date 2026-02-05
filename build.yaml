@@ -1,5 +1,5 @@
 version: 1
-platform: node
+platform: nodejs
 platformVersion: 24
 run:
   port: 3000
