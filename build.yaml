@@ -1,5 +1,5 @@
 version: 1
 platform: php
-platformVersion: 8.5
+platformVersion: 8.4
 run:
   port: 8080
