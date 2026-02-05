@@ -1,5 +1,5 @@
 version: 1
-platform: node
-platformVersion: 24
+platform: php
+platformVersion: 8.4
 run:
-  port: 3000
+  port: 8080
