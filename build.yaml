@@ -1,5 +1,0 @@
-version: 1
-platform: dotnet
-platformVersion: 10.0
-run:
-  port: 8080
