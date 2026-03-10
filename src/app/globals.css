@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050a18;
+  --foreground: #e0e7ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-cosmic-900: #050a18;
+  --color-cosmic-800: #0c1a3a;
+  --color-cosmic-700: #142952;
+  --color-cosmic-600: #1e3a6e;
+  --color-cosmic-500: #2a4d8f;
+  --color-cosmic-400: #4a7cc9;
+  --color-cosmic-300: #7ba3e0;
+  --color-cosmic-200: #b0cbf0;
+  --color-cosmic-100: #dce8f9;
+  --color-nebula-purple: #7c3aed;
+  --color-nebula-pink: #ec4899;
+  --color-star-gold: #f59e0b;
+  --color-star-white: #f8fafc;
+  --color-mars-red: #ef4444;
+  --color-neptune-blue: #06b6d4;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Starfield background animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.star {
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(124, 58, 237, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.6), 0 0 40px rgba(124, 58, 237, 0.2); }
+}
+
+.glow-card:hover {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
