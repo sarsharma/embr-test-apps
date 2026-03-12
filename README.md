@@ -1,68 +1,29 @@
-# 🚀 Cosmic Explorer
+# Click Counter — Flask + Redis
 
-A space-themed Next.js test application demonstrating **hybrid rendering** — a mix of static assets served directly and dynamic content rendered on the server per-request.
+A simple test app: a click counter backed by Redis cache.
 
-Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4.
-
-## Route Breakdown
-
-### Static Content (pre-rendered at build time)
-
-These pages are generated once during `next build` and served as static HTML/assets. No server computation is needed at request time.
-
-| Route | Type | Description |
-|---|---|---|
-| `/` | ○ Static | Homepage with hero section, featured planets, and architecture overview |
-| `/about` | ○ Static | Fully static page — mission statement, tech stack, and architecture diagram |
-| `/planets` | ○ Static | Planet catalog listing all 8 planets with stats |
-| `/planets/mercury` | ● SSG | Planet detail page (generated via `generateStaticParams`) |
-| `/planets/venus` | ● SSG | Planet detail page |
-| `/planets/earth` | ● SSG | Planet detail page |
-| `/planets/mars` | ● SSG | Planet detail page |
-| `/planets/jupiter` | ● SSG | Planet detail page |
-| `/planets/saturn` | ● SSG | Planet detail page |
-| `/planets/uranus` | ● SSG | Planet detail page |
-| `/planets/neptune` | ● SSG | Planet detail page |
-
-### Dynamic Content (server-rendered on demand)
-
-These routes require server processing on every request. They return fresh data each time.
-
-| Route | Type | Description |
-|---|---|---|
-| `/dashboard` | ƒ Dynamic (SSR) | Server component that generates fresh asteroid tracking data on every request. Also includes a client-side space fact widget. |
-| `/api/space-facts` | ƒ API Route | Returns a random space fact (from a pool of 20+) with a timestamp |
-| `/api/asteroids` | ƒ API Route | Returns simulated near-earth asteroid data — count, velocity, distance, hazard status |
-
-### Legend
-
-| Symbol | Meaning |
-|---|---|
-| ○ | **Static** — pre-rendered as static content, served as-is |
-| ● | **SSG** — pre-rendered as static HTML using `generateStaticParams` |
-| ƒ | **Dynamic** — server-rendered on demand per request |
-
-## Getting Started
+## Run Locally
 
 ```bash
-npm install
-npm run dev
+pip install -r requirements.txt
+# Make sure Redis is running on localhost:6379
+python app.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Open http://localhost:5000
 
-### Production Build
+## Environment Variables
 
-```bash
-npm run build
-npm start
-```
+| Variable | Default | Description |
+|---|---|---|
+| `REDIS_HOST` | `localhost` | Redis server hostname |
+| `REDIS_PORT` | `6379` | Redis server port |
 
-The build output will confirm which routes are static vs dynamic.
+## Endpoints
 
-## Tech Stack
-
-- **Next.js 16** — App Router with hybrid static/dynamic rendering
-- **React 19** — Server and Client Components
-- **TypeScript** — Full type safety
-- **Tailwind CSS 4** — Utility-first styling with custom space theme
+| Route | Method | Description |
+|---|---|---|
+| `/` | GET | Main page with click button |
+| `/click` | POST | Increment counter, returns JSON |
+| `/reset` | POST | Reset counter to 0 |
+| `/health` | GET | Health check (tests Redis connection) |
