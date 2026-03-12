@@ -34,7 +34,7 @@ export default function RootLayout({
         <main className="pt-16">{children}</main>
         <footer className="border-t border-cosmic-700 mt-20 py-8 text-center text-sm text-cosmic-400">
           <p>🚀 Cosmic Explorer — A Next.js Hybrid Test App</p>
-          <p className="mt-1 text-cosmic-500">Static + Dynamic · SSG + SSR + API Routes</p>
+          <p className="mt-1 text-cosmic-500">SSG + SSR + ISR + CSR + Streaming + PPR + API Routes</p>
         </footer>
       </body>
     </html>

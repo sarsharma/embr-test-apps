@@ -8,6 +8,10 @@ const links = [
   { href: "/about", label: "About", icon: "🔭" },
   { href: "/planets", label: "Planets", icon: "🪐" },
   { href: "/dashboard", label: "Dashboard", icon: "📡" },
+  { href: "/missions", label: "Missions", icon: "🚀" },
+  { href: "/galaxy-map", label: "Galaxy Map", icon: "🌌" },
+  { href: "/live-tracker", label: "Live Tracker", icon: "🛰️" },
+  { href: "/starlog", label: "Starlog", icon: "📖" },
 ];
 
 export default function Navigation() {
