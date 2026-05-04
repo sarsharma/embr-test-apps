@@ -1,0 +1,6 @@
+version: 1
+platform: python
+platformVersion: 3.14
+run:
+  port: 8000
+  startCommand: gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app
