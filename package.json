@@ -1,0 +1,12 @@
+{
+  "name": "custom-build-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Embr e2e test app for custom buildCommand via Oryx CUSTOM_BUILD_COMMAND",
+  "scripts": {
+    "build": "echo BUILD_RAN && node -e \"require('fs').writeFileSync('dist.txt','built at '+new Date().toISOString())\""
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
