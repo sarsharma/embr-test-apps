@@ -1,8 +1,8 @@
-# platformVersion is deliberately NOT the build image default. The custom build
-# command prints `node --version`; if Oryx prepared the environment before running
-# CUSTOM_BUILD_COMMAND, the build log will show this exact version (v18.x).
+# The custom build command prints `node --version`; if Oryx prepared the
+# environment before running CUSTOM_BUILD_COMMAND, the build log will show this
+# exact version (v22.x).
 platform: nodejs
-platformVersion: "18"
+platformVersion: "22"
 buildCommand: "node --version && npm ci && npm run build"
 autoDeploy: true
 

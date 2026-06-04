@@ -6,8 +6,7 @@ environment, then runs your command instead of its default install/build step).
 
 ## What this verifies
 
-`embr.yaml` pins `platformVersion: "18"` (intentionally not the build image
-default) and sets:
+`embr.yaml` pins `platformVersion: "22"` (the supported Node version) and sets:
 
 ```yaml
 buildCommand: "node --version && npm ci && npm run build"
@@ -15,8 +14,8 @@ buildCommand: "node --version && npm ci && npm run build"
 
 In the build log you should see:
 
-- `oryx build … --platform nodejs --platform-version 18 --skip-detection`
-- `v18.x.x` from `node --version` → proves Oryx set up the requested SDK/PATH
+- `oryx build … --platform nodejs --platform-version 22 --skip-detection`
+- `v22.x.x` from `node --version` → proves Oryx set up the requested SDK/PATH
   **before** running the custom command.
 - `BUILD_RAN` → your custom command ran instead of Oryx's default `npm install`.
 
@@ -32,3 +31,4 @@ specified…"*, and no sandbox build is attempted.
 embr quickstart deploy <owner/repo> -i <installationId> -b node-custom-build-cmd
 embr builds logs <buildId> -p <projectId> -e <environmentId>
 ```
+
