@@ -20,6 +20,6 @@ healthCheck:
 static:
   build:
     rootDirectory: apps/web
-    buildCommand: npm ci && npm run build
+    buildCommand: npm install && npm run build
     outputDirectory: dist
   spaFallback: true

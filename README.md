@@ -23,8 +23,8 @@ frontend** and a **backend** deployed to a **single environment** under **one UR
   `run.startCommand: node server.js`, and `run.routePrefixes: ["/api"]` — so every request under
   `/api/*` is routed to the container.
 - **Frontend** (`apps/web`) is built separately in the same build sandbox via
-  `static.build` (`buildCommand: npm ci && npm run build`, `outputDirectory: dist`) and uploaded
-  to the CDN. With `spaFallback: true`, client-side routes resolve to `index.html`.
+  `static.build` (`buildCommand: npm install && npm run build`, `outputDirectory: dist`) and
+  uploaded to the CDN. With `spaFallback: true`, client-side routes resolve to `index.html`.
 - **One URL:** `/api/*` → backend; everything else → the static frontend. The frontend calls the
   backend same-origin (`fetch('/api/hello')`) — no CORS, no API base URL.
 
