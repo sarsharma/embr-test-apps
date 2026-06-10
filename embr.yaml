@@ -1,0 +1,25 @@
+# Single environment with a separate frontend + backend (Embr "Shape B").
+#
+#   - Backend  (apps/api) is an Express server that owns /api/*.
+#   - Frontend (apps/web) is a Vite + React SPA, built separately and served from the CDN.
+#
+# One URL: requests under run.routePrefixes (/api) go to the backend container; everything else is
+# served from the static frontend, with SPA fallback for client-side routes.
+platform: nodejs
+platformVersion: "20"
+rootDirectory: apps/api
+
+run:
+  port: 3000
+  startCommand: node server.js
+  routePrefixes: ["/api"]
+
+healthCheck:
+  path: /api/health
+
+static:
+  build:
+    rootDirectory: apps/web
+    buildCommand: npm ci && npm run build
+    outputDirectory: dist
+  spaFallback: true
